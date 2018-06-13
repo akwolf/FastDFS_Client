@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:apollo="http://www.ctrip.com/schema/apollo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.ctrip.com/schema/apollo http://www.ctrip.com/schema/apollo.xsd">
+
+
+    <mvc:annotation-driven/>
+    <mvc:default-servlet-handler/>
+    <context:component-scan base-package="com.szyyky.spring.controller"/>
+
+
+    <bean id="pooledConnectionFactory" class="com.github.tobato.fastdfs.conn.PooledConnectionFactory">
+        <property name="soTimeout" value="1501"/>
+        <property name="connectTimeout" value="1601"/>
+    </bean>
+    <bean class="com.github.tobato.fastdfs.conn.ConnectionPoolConfig" id="connectionPoolConfig">
+        <property name="maxTotal" value="153"/>
+        <property name="maxWaitMillis" value="102"/>
+        <property name="jmxNameBase" value="1"/>
+        <property name="jmxNamePrefix" value="1"/>
+    </bean>
+
+    <bean class="com.github.tobato.fastdfs.conn.FdfsConnectionPool" id="connectionPool">
+        <constructor-arg index="0" ref="pooledConnectionFactory"/>
+        <constructor-arg index="1" ref="connectionPoolConfig"/>
+    </bean>
+
+    <bean class="com.github.tobato.fastdfs.domain.DefaultThumbImageConfig" id="thumbImageConfig">
+        <property name="height" value="250"/>
+        <property name="width" value="250"/>
+    </bean>
+    <bean class="com.github.tobato.fastdfs.service.DefaultTrackerClient" id="trackerClient"/>
+
+    <bean class="com.github.tobato.fastdfs.conn.TrackerConnectionManager" id="trackerConnectionManager">
+        <property name="pool" ref="connectionPool"/>
+        <property name="trackerList" value="#{${fastdfs.tracker.server.cluster}}"></property>
+    </bean>
+
+
+    <bean class="com.github.tobato.fastdfs.service.DefaultFastFileStorageClient" id="storageClient">
+        <property name="connectionManager" ref="trackerConnectionManager"/>
+        <property name="trackerClientService" ref="trackerClient"/>
+    </bean>
+
+    <apollo:config/>
+</beans>
