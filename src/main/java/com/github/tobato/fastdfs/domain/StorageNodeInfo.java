@@ -25,7 +25,6 @@ public class StorageNodeInfo {
      * 
      * @param ip
      * @param port
-     * @param storeIndex
      */
     public StorageNodeInfo(String ip, int port) {
         super();

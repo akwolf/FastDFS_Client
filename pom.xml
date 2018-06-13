@@ -1,9 +1,10 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.tobato</groupId>
     <artifactId>fastdfs-client</artifactId>
-    <version>1.26.2-SNAPSHOT</version>
+    <version>1.26.3-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>fastdfs-client</name>
@@ -28,14 +29,14 @@
         <connection>scm:git:git@github.com:tobato/FastDFS_Client.git</connection>
         <developerConnection>scm:git:git@github.com:tobato/FastDFS_Client.git</developerConnection>
         <url>https://github.com/tobato/FastDFS_Client</url>
-      <tag>HEAD</tag>
-  </scm>
+        <tag>HEAD</tag>
+    </scm>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.0.0.RELEASE</version>
-        <relativePath />
+        <relativePath/>
     </parent>
 
     <properties>
@@ -229,11 +230,11 @@
             <artifactId>spring-core</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <scope>test</scope>
-        </dependency>
+        <!--        <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-web</artifactId>
+                    <scope>test</scope>
+                </dependency>-->
 
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -241,10 +242,10 @@
             <version>${hibernate-validator.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-autoconfigure</artifactId>
-        </dependency>
+        <!--        <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-autoconfigure</artifactId>
+                </dependency>-->
 
         <dependency>
             <groupId>org.mockito</groupId>
@@ -252,10 +253,10 @@
             <version>${mockito.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-        </dependency>
+        <!--<dependency>-->
+        <!--<groupId>org.springframework</groupId>-->
+        <!--<artifactId>spring-context</artifactId>-->
+        <!--</dependency>-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -269,12 +270,27 @@
             <artifactId>thumbnailator</artifactId>
             <version>0.4.8</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
-        </dependency>
-    </dependencies>
+        <!--        <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-configuration-processor</artifactId>
+                    <optional>true</optional>
+                </dependency>-->
 
+    </dependencies>
+    <!-- 配置部署的远程仓库start -->
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>nexus distribution snapshot repository</name>
+            <!-- <url>http://192.168.0.91:8081/nexus/content/repositories/snapshots/</url> -->
+            <url>http://192.168.0.91:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <name>nexus releases snapshot repository</name>
+            <!--<url>http://192.168.0.91:8081/nexus/content/repositories/releases/</url> -->
+            <url>http://192.168.0.91:8081/repository/maven-releases/</url>
+        </repository>
+    </distributionManagement>
 
 </project>

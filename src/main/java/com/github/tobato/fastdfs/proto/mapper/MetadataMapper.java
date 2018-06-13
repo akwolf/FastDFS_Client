@@ -22,7 +22,7 @@ public class MetadataMapper {
     /**
      * 将元数据映射为byte
      * 
-     * @param list
+     * @param metadataSet
      * @param charset
      * @return
      */

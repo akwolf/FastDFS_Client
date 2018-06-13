@@ -1,20 +1,6 @@
 package com.github.tobato.fastdfs.service;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
-
-import javax.annotation.Resource;
-
 import com.github.tobato.fastdfs.domain.MataData;
-import org.apache.commons.io.IOUtils;
-import org.apache.commons.lang3.Validate;
-import org.springframework.stereotype.Component;
-
 import com.github.tobato.fastdfs.domain.StorageNode;
 import com.github.tobato.fastdfs.domain.StorePath;
 import com.github.tobato.fastdfs.domain.ThumbImageConfig;
@@ -24,8 +10,18 @@ import com.github.tobato.fastdfs.proto.storage.StorageSetMetadataCommand;
 import com.github.tobato.fastdfs.proto.storage.StorageUploadFileCommand;
 import com.github.tobato.fastdfs.proto.storage.StorageUploadSlaveFileCommand;
 import com.github.tobato.fastdfs.proto.storage.enums.StorageMetdataSetType;
-
 import net.coobird.thumbnailator.Thumbnails;
+import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang3.Validate;
+
+import javax.annotation.Resource;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Set;
 
 /**
  * 面向应用的接口实现
@@ -33,7 +29,7 @@ import net.coobird.thumbnailator.Thumbnails;
  * @author tobato
  *
  */
-@Component
+//@Component
 public class DefaultFastFileStorageClient extends DefaultGenerateStorageClient implements FastFileStorageClient {
 
     /** 支持的图片类型 */
@@ -195,4 +191,7 @@ public class DefaultFastFileStorageClient extends DefaultGenerateStorageClient i
         super.deleteFile(storePath.getGroup(), storePath.getPath());
     }
 
+    public ThumbImageConfig getThumbImageConfig() {
+        return thumbImageConfig;
+    }
 }

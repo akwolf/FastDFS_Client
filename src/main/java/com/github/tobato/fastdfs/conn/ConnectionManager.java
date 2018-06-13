@@ -1,14 +1,11 @@
 package com.github.tobato.fastdfs.conn;
 
-import java.net.InetSocketAddress;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
 import com.github.tobato.fastdfs.exception.FdfsException;
 import com.github.tobato.fastdfs.proto.FdfsCommand;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.net.InetSocketAddress;
 
 /**
  * 连接池管理
@@ -20,11 +17,11 @@ import com.github.tobato.fastdfs.proto.FdfsCommand;
  * @author tobato
  *
  */
-@Component
+//@Component
 public class ConnectionManager {
 
     /** 连接池 */
-    @Autowired
+//    @Autowired
     private FdfsConnectionPool pool;
     /** 日志 */
     protected static final Logger LOGGER = LoggerFactory.getLogger(ConnectionManager.class);

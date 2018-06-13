@@ -1,15 +1,11 @@
 package com.github.tobato.fastdfs.conn;
 
-import java.net.InetSocketAddress;
-import java.nio.charset.Charset;
-
 import org.apache.commons.pool2.BaseKeyedPooledObjectFactory;
 import org.apache.commons.pool2.PooledObject;
 import org.apache.commons.pool2.impl.DefaultPooledObject;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
 
-import com.github.tobato.fastdfs.FdfsClientConstants;
+import java.net.InetSocketAddress;
+import java.nio.charset.Charset;
 
 /**
  * pooled FdfsSocket factory
@@ -21,8 +17,8 @@ import com.github.tobato.fastdfs.FdfsClientConstants;
  * @author tobato
  *
  */
-@Component
-@ConfigurationProperties(prefix = FdfsClientConstants.ROOT_CONFIG_PREFIX)
+//@Component
+//@ConfigurationProperties(prefix = FdfsClientConstants.ROOT_CONFIG_PREFIX)
 public class PooledConnectionFactory extends BaseKeyedPooledObjectFactory<InetSocketAddress, Connection> {
 
     /** 读取时间 */

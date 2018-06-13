@@ -31,10 +31,7 @@ public class StorageAppendFileRequest extends FdfsRequest {
      * 构造函数
      * 
      * @param inputStream
-     * @param fileExtName
      * @param fileSize
-     * @param storeIndex
-     * @param isAppenderFile
      */
     public StorageAppendFileRequest(InputStream inputStream, long fileSize, String path) {
         super();

@@ -1,10 +1,5 @@
 package com.github.tobato.fastdfs.conn;
 
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
-
-import com.github.tobato.fastdfs.FdfsClientConstants;
-
 /**
  * 表示文件Web服务器对象
  * 
@@ -15,8 +10,8 @@ import com.github.tobato.fastdfs.FdfsClientConstants;
  * @author tobato
  *
  */
-@Component
-@ConfigurationProperties(prefix = FdfsClientConstants.ROOT_CONFIG_PREFIX)
+//@Component
+//@ConfigurationProperties(prefix = FdfsClientConstants.ROOT_CONFIG_PREFIX)
 public class FdfsWebServer {
 
     private String webServerUrl;

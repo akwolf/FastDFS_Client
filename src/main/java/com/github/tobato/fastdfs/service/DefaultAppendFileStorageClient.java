@@ -1,9 +1,5 @@
 package com.github.tobato.fastdfs.service;
 
-import java.io.InputStream;
-
-import org.springframework.stereotype.Component;
-
 import com.github.tobato.fastdfs.domain.StorageNode;
 import com.github.tobato.fastdfs.domain.StorageNodeInfo;
 import com.github.tobato.fastdfs.domain.StorePath;
@@ -12,13 +8,15 @@ import com.github.tobato.fastdfs.proto.storage.StorageModifyCommand;
 import com.github.tobato.fastdfs.proto.storage.StorageTruncateCommand;
 import com.github.tobato.fastdfs.proto.storage.StorageUploadFileCommand;
 
+import java.io.InputStream;
+
 /**
  * 存储服务客户端接口实现
  * 
  * @author tobato
  *
  */
-@Component
+//@Component
 public class DefaultAppendFileStorageClient extends DefaultGenerateStorageClient implements AppendFileStorageClient {
 
     /**

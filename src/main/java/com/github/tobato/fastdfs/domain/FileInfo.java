@@ -34,7 +34,7 @@ public class FileInfo {
 
     /**
      * @param sourceIpAddr
-     * @param size
+     * @param fileSize
      * @param createTime
      * @param crc32
      */
@@ -69,7 +69,7 @@ public class FileInfo {
     }
 
     /**
-     * @param size
+     * @param fileSize
      *            the size to set
      */
     public void setFileSize(long fileSize) {

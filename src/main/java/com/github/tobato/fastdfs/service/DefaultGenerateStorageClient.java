@@ -1,29 +1,15 @@
 package com.github.tobato.fastdfs.service;
 
-import java.io.InputStream;
-import java.util.Set;
-
-import javax.annotation.Resource;
-
+import com.github.tobato.fastdfs.conn.ConnectionManager;
+import com.github.tobato.fastdfs.domain.*;
+import com.github.tobato.fastdfs.proto.storage.*;
+import com.github.tobato.fastdfs.proto.storage.enums.StorageMetdataSetType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
 
-import com.github.tobato.fastdfs.conn.ConnectionManager;
-import com.github.tobato.fastdfs.domain.FileInfo;
-import com.github.tobato.fastdfs.domain.MataData;
-import com.github.tobato.fastdfs.domain.StorageNode;
-import com.github.tobato.fastdfs.domain.StorageNodeInfo;
-import com.github.tobato.fastdfs.domain.StorePath;
-import com.github.tobato.fastdfs.proto.storage.DownloadCallback;
-import com.github.tobato.fastdfs.proto.storage.StorageDeleteFileCommand;
-import com.github.tobato.fastdfs.proto.storage.StorageDownloadCommand;
-import com.github.tobato.fastdfs.proto.storage.StorageGetMetadataCommand;
-import com.github.tobato.fastdfs.proto.storage.StorageQueryFileInfoCommand;
-import com.github.tobato.fastdfs.proto.storage.StorageSetMetadataCommand;
-import com.github.tobato.fastdfs.proto.storage.StorageUploadFileCommand;
-import com.github.tobato.fastdfs.proto.storage.StorageUploadSlaveFileCommand;
-import com.github.tobato.fastdfs.proto.storage.enums.StorageMetdataSetType;
+import javax.annotation.Resource;
+import java.io.InputStream;
+import java.util.Set;
 
 /**
  * 基本存储客户端操作实现
@@ -31,7 +17,7 @@ import com.github.tobato.fastdfs.proto.storage.enums.StorageMetdataSetType;
  * @author tobato
  *
  */
-@Component
+//@Component
 public class DefaultGenerateStorageClient implements GenerateStorageClient {
 
     /** trackerClient */

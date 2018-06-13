@@ -1,22 +1,15 @@
 package com.github.tobato.fastdfs.service;
 
-import java.util.List;
-
-import javax.annotation.Resource;
-
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.stereotype.Service;
-
 import com.github.tobato.fastdfs.conn.TrackerConnectionManager;
 import com.github.tobato.fastdfs.domain.GroupState;
 import com.github.tobato.fastdfs.domain.StorageNode;
 import com.github.tobato.fastdfs.domain.StorageNodeInfo;
 import com.github.tobato.fastdfs.domain.StorageState;
-import com.github.tobato.fastdfs.proto.tracker.TrackerDeleteStorageCommand;
-import com.github.tobato.fastdfs.proto.tracker.TrackerGetFetchStorageCommand;
-import com.github.tobato.fastdfs.proto.tracker.TrackerGetStoreStorageCommand;
-import com.github.tobato.fastdfs.proto.tracker.TrackerListGroupsCommand;
-import com.github.tobato.fastdfs.proto.tracker.TrackerListStoragesCommand;
+import com.github.tobato.fastdfs.proto.tracker.*;
+import org.apache.commons.lang3.StringUtils;
+
+import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * 目录服务客户端默认实现
@@ -24,11 +17,12 @@ import com.github.tobato.fastdfs.proto.tracker.TrackerListStoragesCommand;
  * @author tobato
  *
  */
-@Service
+//@Service
 public class DefaultTrackerClient implements TrackerClient {
 
     @Resource
     private TrackerConnectionManager trackerConnectionManager;
+
 
     /**
      * 获取存储节点

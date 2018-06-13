@@ -1,25 +1,26 @@
 package com.github.tobato.fastdfs.conn;
 
 import org.apache.commons.pool2.impl.GenericKeyedObjectPoolConfig;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
 
-import com.github.tobato.fastdfs.FdfsClientConstants;
+//import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
  * 连接池配置
- * 
- * @author tobato
  *
+ * @author tobato
  */
-@Component
-@ConfigurationProperties(prefix = FdfsClientConstants.POOL_CONFIG_PREFIX)
+//@Component
+//@ConfigurationProperties(prefix = FdfsClientConstants.POOL_CONFIG_PREFIX)
 public class ConnectionPoolConfig extends GenericKeyedObjectPoolConfig {
 
-    /** 从池中借出的对象的最大数目 */
+    /**
+     * 从池中借出的对象的最大数目
+     */
     public static final int FDFS_MAX_TOTAL = 50;
 
-    /** 在空闲时检查有效性, 默认false */
+    /**
+     * 在空闲时检查有效性, 默认false
+     */
     public static final boolean FDFS_TEST_WHILE_IDLE = true;
 
     /**
@@ -48,10 +49,14 @@ public class ConnectionPoolConfig extends GenericKeyedObjectPoolConfig {
      */
     public static final int FDFS_NUM_TESTS_PEREVICTION_RUN = -1;
 
-    /** 默认jmx域名 */
+    /**
+     * 默认jmx域名
+     */
     public static final String FDFS_JMX_NAME_BASE = "com.github.tobato.fastdfs.conn:type=FdfsConnectionPool";
 
-    /** 默认jmx prefix名称 */
+    /**
+     * 默认jmx prefix名称
+     */
     public static final String FDFS_JMX_NAME_PREFIX = "fdfsPool";
 
     public ConnectionPoolConfig() {
